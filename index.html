@@ -829,13 +829,13 @@
                     </script>
                     <div id="salarybyexperienceandgenderzoomed" class="chart-container"></div>
 
-  <h3>Salary comparison for junior, mid, and senior (self selected) developers</h3>
+  <h3>Salary comparison for junior, mid, and senior developers</h3>
   <table class="tableizer-table">
     <thead><tr class="tableizer-firstrow"><th></th><th>Junior</th><th>Mid</th><th>Senior</th></tr></thead><tbody>
-     <tr><td>Min</td><td>34000</td><td>51250</td><td>60000</td></tr>
-     <tr><td>Average</td><td>56939</td><td>83727</td><td>123891</td></tr>
-     <tr><td>Max</td><td>88500</td><td>127000</td><td>206400</td></tr>
-     <tr><td>Standard Dev</td><td>13737</td><td>16913</td><td>24845</td></tr>
+     <tr><td>Min</td><td>$34,000</td><td>$51,250</td><td>$60,000</td></tr>
+     <tr><td>Average</td><td>$56,939</td><td>$83,727</td><td>$123,891</td></tr>
+     <tr><td>Max</td><td>$88,500</td><td>$127,000</td><td>$206,400</td></tr>
+     <tr><td>Standard Dev</td><td>$13,737</td><td>$16,913</td><td>$24,845</td></tr>
     </tbody></table>
   <script>
         charts.push(() => {
@@ -862,16 +862,6 @@
                 {x:0, label: "Junior Developer", y: [34000, 45750, 65000, 88500, 56939] },
                 {x:1, label: "Mid-level Developer", y: [51250, 73750, 94500, 127000, 83727] },
                 {x:2, label: "Senior Developer", y: [60000, 109000, 140000, 206400, 123891] },
-            ]
-        },
-        {
-            type: "scatter",
-            name: "Outlier Values",
-            toolTipContent: "<span style=\"color:#C0504E\">{name}</span>: {y} km/s",
-            showInLegend: true,
-            dataPoints: [
-                { x: 0, label: "Junior Developer", y: 250000 },
-                // { x: 2, label: "Junior Developer", y: 620 },
             ]
         }]
     });
