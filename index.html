@@ -1,0 +1,1933 @@
+<!doctype html>
+<html lang="eng">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6431083-24"></script>
+        <script>
+        // window.dataLayer = window.dataLayer || [];
+        // function gtag(){dataLayer.push(arguments);}
+        // gtag('js', new Date());
+
+        // gtag('config', 'UA-6431083-24');
+        </script>
+
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Utah JS 2018 pay and education survey</title>
+        <meta name="description" content="Results and analysis of a 2017 survey of Utah JavaScript developers compensation and career progression.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.png">
+        <script src="canvasjs.js"></script>
+        <script>
+            const charts = [];
+        </script>
+    </head>
+    <body>
+      <div class="page">
+        <h1>2018 UtahJS Pay, Education, Job-title Survey</h1>
+
+        <p>In October 2018 a survey was conducted through the UtahJS slack channel around the topics of pay and education. This webpage presents some analysis of the results, as well as links to the raw data.</p>
+
+        <h2>Demographics</h2>
+
+        <p>136 people responeded to the survey. They described themeselves in the following ways:</p>
+
+        <h3>Self Reported Job Titles</h3>
+
+        <p>This years survey allowed respondants to choose multiple job titles, like Senior Developer and Team Lead, so the sum of job titles is greater than the total number of respondants.</p>
+
+        <script>
+
+
+            charts.push(() => {
+                let chart = new CanvasJS.Chart("jobTitles", {
+                    creditText: "",
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title:{
+                        text: "Reported Job Titles"
+                    },
+                    axisY: {
+                        title: "Respondants"
+                    },
+                    data: [{
+                        type: "column",
+                        dataPoints: [
+                            {label: "Junior Developer", y: 32},
+                            {label: "Mid-level Developer", y: 49},
+                            {label: "Senior Developer", y: 42},
+                            {label: "Team Lead", y: 15},
+                            {label: "Manager", y: 12},
+                            {label: "Other", y: 4}
+                        ]
+                    }]
+                });
+                chart.render();
+            })
+            </script>
+
+            <div id="jobTitles" class="chart-container"></div>
+
+            <h3>Job title breakdown</h3>
+            <p>The following shows the years of experience for the self-reported titles: </p>
+            <script>
+                    charts.push(() => {
+                        var chart = new CanvasJS.Chart("experiencebytitle", {
+                    animationEnabled: true,
+                    theme: "light2", // "light1", "light2", "dark1", "dark2"
+                    title:{
+                        text: "Experience by job title"
+                    },
+                    axisY: {
+                        title: "Years",
+                        includeZero: false,
+                        tickLength: 0,
+                        gridDashType: "dash",
+                    },
+                    dataPointMaxWidth: 30,
+                    data: [{
+                        type: "boxAndWhisker",
+                        toolTipContent: "<span style=\"color:#6D78AD\">{label}:</span> <br><b>Maximum:</b> {y[3]},<br><b>Q3:</b> {y[2]},<br><b>Median:</b> {y[4]}<br><b>Q1:</b> {y[1]}<br><b>Minimum:</b> {y[0]}",
+                        dataPoints: [
+                        { x:0, label: "Junior Developer", y:[	0.5, 1.0, 2.0, 5.0, 1.5]},
+                        { x:1, label: "Mid-level Developer", y:[	1.0, 2.0, 4.3, 14.0, 3.4]},
+                        { x:2, label: "Senior Developer", y:[	2.0, 5.0, 13.0, 20.0, 9.6]},
+                        ]
+                    }]
+                });
+                        chart.render();
+                    })
+                </script>
+                <div id="experiencebytitle" style="height: 370px; width:100%"></div>
+        <p>Other Job titles included: Developer Writer, QA, Consultant, and Product Owner.</p>
+
+        <h3>Years of Experience</h3>
+
+        <script>
+            charts.push(() => {
+
+            let chart = new CanvasJS.Chart("experience", {
+                animationEnabled: true,
+                title:{
+                    text: "Years of experience"
+                },
+                axisY: {
+                    title: "Number of respondants",
+                },
+                data: [{
+                    type: "splineArea",
+                    color: "rgba(54,158,173,.7)",
+                    markerSize: 5,
+                    dataPoints: [
+                        {x:1, y:	23},
+                        {x:2, y:	23},
+                        {x:3, y:	17},
+                        {x:4, y:	10},
+                        {x:5, y:	15},
+                        {x:6, y:	5},
+                        {x:7, y:	5},
+                        {x:8, y:	7},
+                        {x:9, y:	1},
+                        {x:10, y:	7},
+                        {x:11, y:	1},
+                        {x:12, y:	4},
+                        {x:13, y:	3},
+                        {x:14, y:	4},
+                        {x:15, y:	2},
+                        {x:16, y:	0},
+                        {x:17, y:	0},
+                        {x:18, y:	2},
+                        {x:19, y:	1},
+                        {x:20, y:   3}
+                    ]
+                }]
+                });
+            chart.render();
+            })
+            </script>
+
+            <div id="experience" class="chart-container"></div>
+    <h3>Gender</h3>
+    <table>
+        <thead>
+            <tr><td>Female</td><td>20</td></tr>
+            <tr><td>Male</td><td>168</td></tr>
+            <tr><td>Prefer not to say</td><td>4</td></tr>
+            <tr><td>Other</td><td>2</td></tr>
+        </thead>
+    </table>
+
+    <script>
+        charts.push(() => {
+
+        var chart = new CanvasJS.Chart("gender", {
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            animationEnabled: true,
+            title: {
+                text: "Gender"
+            },
+            data: [{
+                type: "pie",
+                startAngle: 25,
+                toolTipContent: "<b>{label}</b>: {y}%",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}%",
+                dataPoints: [
+                    { y: 68.6, label: "Male" },
+                    { y: 10.31, label: "Female" },
+                    { y: 2.06, label: "Prefer not to say" },
+                    { y: 1.03, label: "Other" },
+                ]
+            }]
+        });
+        chart.render();
+
+        })
+        </script>
+        <div id="gender" class="chart-container"></div>
+        <p>Genders reported were "Male", "Female", "Not Sure", and "Transgender Woman"</p>
+
+      <h2>Pay</h2>
+
+      <h3>Net Salary (Not including bonuses, stock, etc)</h3>
+
+        <p>This year several respondants reported no income (unimployed). Including their data, the salary breakdown is:</p>
+
+      <table>
+        <tr><td>Minimun</td><td>$0</td></tr>
+        <tr><td>Average</td><td>$94,084</td></tr>
+        <tr><td>Maximum</td><td>$250,000</td></tr>
+        <tr><td>Standard Deviation</td><td>$37,542</td></tr>
+    </table>
+
+    <p>Excluding those data points (for all responses that are employed), the breakdown is:</p>
+    <table>
+        <tr><td>Minimun</td><td>$34,000</td></tr>
+        <tr><td>Average</td><td>$94,571</td></tr>
+        <tr><td>Maximum</td><td>$250,000</td></tr>
+        <tr><td>Standard Deviation</td><td>$37,019</td></tr>
+    </table>
+
+    <p>The rest of the analysis will be based on respondants that are employed:</p>
+
+    <h3>Salary by Experience</h3>
+
+    <script>
+        charts.push(()=>{
+
+        var chart = new CanvasJS.Chart("salarybyexperience", {
+            animationEnabled: true,
+            title:{
+                text: "Salary by Experience"
+            },
+            axisX: {
+                title:"Years of Experience"
+            },
+            axisY:{
+                title: "Net Salary",
+                maximum: 250000,
+                interval: 25000,
+            },
+            data: [{
+                type: "scatter",
+                name: "Salary by Experience",
+                showInLegend: true,
+                dataPoints: [
+                {x:0.5, y:40000},
+{x:0.5, y:75000},
+{x:0.5, y:0},
+{x:0.6, y:38000},
+{x:0.7, y:52000},
+{x:1, y:70000},
+{x:1, y:72800},
+{x:1, y:40000},
+{x:1, y:50000},
+{x:1, y:60000},
+{x:1, y:60000},
+{x:1, y:96000},
+{x:1, y:45000},
+{x:1, y:50000},
+{x:1, y:34000},
+{x:1, y:50000},
+{x:1, y:80000},
+{x:1, y:60000},
+{x:1, y:65000},
+{x:1, y:62000},
+{x:1, y:60000},
+{x:1, y:37440},
+{x:1, y:41000},
+{x:1, y:52000},
+{x:1, y:48000},
+{x:1, y:65000},
+{x:1, y:42000},
+{x:1, y:38000},
+{x:1, y:70000},
+{x:1, y:50000},
+{x:1, y:40000},
+{x:1, y:50000},
+{x:1, y:37440},
+{x:1, y:65000},
+{x:1.2, y:67000},
+{x:1.5, y:90000},
+{x:1.5, y:65000},
+{x:1.5, y:70000},
+{x:1.5, y:60000},
+{x:1.5, y:65000},
+{x:1.5, y:74000},
+{x:1.5, y:62000},
+{x:1.5, y:80500},
+{x:1.5, y:75000},
+{x:1.7, y:51250},
+{x:1.75, y:65000},
+{x:2, y:80000},
+{x:2, y:80000},
+{x:2, y:51250},
+{x:2, y:59450},
+{x:2, y:105000},
+{x:2, y:75000},
+{x:2, y:70000},
+{x:2, y:70000},
+{x:2, y:105000},
+{x:2, y:38000},
+{x:2, y:55000},
+{x:2, y:88500},
+{x:2, y:70000},
+{x:2, y:78000},
+{x:2, y:70000},
+{x:2, y:65000},
+{x:2, y:90000},
+{x:2, y:36000},
+{x:2, y:60000},
+{x:2, y:67500},
+{x:2, y:70000},
+{x:2, y:76800},
+{x:2, y:100000},
+{x:2, y:55000},
+{x:2.5, y:52000},
+{x:2.5, y:80000},
+{x:2.5, y:80000},
+{x:2.5, y:100000},
+{x:2.5, y:92000},
+{x:2.5, y:65000},
+{x:3, y:68500},
+{x:3, y:60000},
+{x:3, y:75000},
+{x:3, y:80000},
+{x:3, y:120000},
+{x:3, y:63000},
+{x:3, y:75000},
+{x:3, y:65000},
+{x:3, y:75000},
+{x:3, y:70000},
+{x:3, y:85000},
+{x:3, y:90000},
+{x:3, y:100000},
+{x:3, y:76553.4},
+{x:3, y:165000},
+{x:3, y:80000},
+{x:3, y:127000},
+{x:3, y:75000},
+{x:3.75, y:115000},
+{x:4, y:108000},
+{x:4, y:105000},
+{x:4, y:110000},
+{x:4, y:75000},
+{x:4, y:82000},
+{x:4, y:115000},
+{x:4, y:90000},
+{x:4, y:105000},
+{x:4, y:121000},
+{x:4, y:91000},
+{x:4, y:125000},
+{x:5, y:85000},
+{x:5, y:67000},
+{x:5, y:94000},
+{x:5, y:80000},
+{x:5, y:206400},
+{x:5, y:115000},
+{x:5, y:107000},
+{x:5, y:100000},
+{x:5, y:130000},
+{x:5, y:109000},
+{x:5, y:60000},
+{x:5, y:95000},
+{x:5, y:65000},
+{x:5, y:105500},
+{x:5, y:125000},
+{x:5, y:82000},
+{x:5, y:125000},
+{x:5, y:88000},
+{x:5, y:109000},
+{x:5, y:100000},
+{x:6, y:90000},
+{x:6, y:125000},
+{x:6, y:80000},
+{x:6, y:80000},
+{x:6, y:90000},
+{x:6, y:112000},
+{x:6, y:138000},
+{x:7, y:150000},
+{x:7, y:114000},
+{x:7, y:120000},
+{x:7, y:140000},
+{x:7, y:60000},
+{x:7, y:114500},
+{x:7, y:117000},
+{x:7, y:120000},
+{x:8, y:101000},
+{x:8, y:140000},
+{x:8, y:135000},
+{x:8, y:165000},
+{x:8, y:121000},
+{x:8, y:96000},
+{x:8, y:108500},
+{x:8, y:110000},
+{x:9, y:180000},
+{x:9, y:113000},
+{x:10, y:128000},
+{x:10, y:60000},
+{x:10, y:172000},
+{x:10, y:120000},
+{x:10, y:130000},
+{x:10, y:75000},
+{x:10, y:150000},
+{x:10, y:100000},
+{x:10, y:110000},
+{x:11, y:145000},
+{x:11, y:130000},
+{x:12, y:110000},
+{x:12, y:150000},
+{x:12, y:125000},
+{x:12, y:160000},
+{x:12, y:145000},
+{x:12, y:87500},
+{x:13, y:149000},
+{x:13, y:125000},
+{x:13, y:140000},
+{x:13, y:135000},
+{x:13, y:151000},
+{x:13, y:150000},
+{x:14, y:94000},
+{x:14, y:150000},
+{x:14, y:141000},
+{x:14, y:140000},
+{x:14, y:85000},
+{x:15, y:98000},
+{x:15, y:130000},
+{x:15, y:160000},
+{x:16, y:155000},
+{x:18, y:125000},
+{x:18, y:110000},
+{x:18, y:114000},
+{x:19, y:135000},
+{x:20, y:135000},
+{x:20, y:159000},
+{x:20, y:142000},
+{x:20, y:135000},
+{x:21, y:105000},
+{x:25, y:177000},
+                ]
+            },
+            {
+                type: "scatter",
+                name: "",
+                showInLegend: false,
+                dataPoints: [
+
+                ]
+            }]
+        });
+        chart.render();
+
+        })
+        </script>
+        <div id="salarybyexperience" class="chart-container"></div>
+<p>The following shows the all salary and experience data points, colored by gender</p>
+        <script>
+            charts.push(()=>{
+
+            var chart = new CanvasJS.Chart("salarybyexperienceandgender", {
+                animationEnabled: true,
+                title:{
+                    text: "Salary by Experience grouped by Gender"
+                },
+                axisX: {
+                    title:"Years"
+                },
+                axisY:{
+                    title: "Net Salary",
+                    maximum: 250000,
+                interval: 25000,
+                },
+                data: [{
+                    type: "scatter",
+                    name: "Male",
+                    showInLegend: true,
+                    dataPoints: [
+                    {x:1.5, y:90000},
+{x:1, y:70000},
+{x:10, y:128000},
+{x:3, y:68500},
+{x:15, y:98000},
+{x:5, y:85000},
+{x:3, y:60000},
+{x:1.5, y:65000},
+{x:6, y:90000},
+{x:3, y:75000},
+{x:4, y:108000},
+{x:2, y:80000},
+{x:2.5, y:52000},
+{x:5, y:94000},
+{x:3, y:80000},
+{x:8, y:101000},
+{x:14, y:94000},
+{x:12, y:110000},
+{x:6, y:125000},
+{x:3, y:63000},
+{x:6, y:80000},
+{x:1, y:40000},
+{x:3, y:75000},
+{x:2, y:51250},
+{x:0.5, y:40000},
+{x:11, y:145000},
+{x:13, y:149000},
+{x:2.5, y:80000},
+{x:1, y:60000},
+{x:13, y:125000},
+{x:1, y:60000},
+{x:6, y:80000},
+{x:2, y:59450},
+{x:1.75, y:65000},
+{x:1.7, y:51250},
+{x:1, y:96000},
+{x:3, y:65000},
+{x:2.5, y:80000},
+{x:7, y:150000},
+{x:2, y:105000},
+{x:0.7, y:52000},
+{x:12, y:150000},
+{x:1, y:45000},
+{x:18, y:125000},
+{x:2.5, y:100000},
+{x:1, y:50000},
+{x:2, y:75000},
+{x:2, y:70000},
+{x:4, y:75000},
+{x:13, y:140000},
+{x:1, y:34000},
+{x:10, y:60000},
+{x:3.75, y:115000},
+{x:8, y:135000},
+{x:1.5, y:65000},
+{x:2, y:70000},
+{x:1, y:50000},
+{x:1.5, y:62000},
+{x:5, y:206400},
+{x:10, y:172000},
+{x:2.5, y:92000},
+{x:1, y:80000},
+{x:3, y:75000},
+{x:2, y:105000},
+{x:10, y:120000},
+{x:1, y:65000},
+{x:12, y:125000},
+{x:10, y:130000},
+{x:2, y:38000},
+{x:20, y:135000},
+{x:15, y:130000},
+{x:1, y:62000},
+{x:5, y:115000},
+{x:2, y:55000},
+{x:14, y:150000},
+{x:5, y:100000},
+{x:3, y:70000},
+{x:12, y:160000},
+{x:6, y:90000},
+{x:4, y:82000},
+{x:5, y:130000},
+{x:7, y:114000},
+{x:5, y:109000},
+{x:8, y:165000},
+{x:20, y:159000},
+{x:2, y:88500},
+{x:14, y:141000},
+{x:8, y:121000},
+{x:5, y:60000},
+{x:10, y:75000},
+{x:19, y:135000},
+{x:8, y:96000},
+{x:1, y:60000},
+{x:4, y:115000},
+{x:18, y:110000},
+{x:7, y:140000},
+{x:20, y:142000},
+{x:3, y:85000},
+{x:5, y:95000},
+{x:5, y:65000},
+{x:5, y:105500},
+{x:2, y:70000},
+{x:7, y:60000},
+{x:10, y:150000},
+{x:3, y:90000},
+{x:14, y:140000},
+{x:1, y:41000},
+{x:4, y:90000},
+{x:4, y:105000},
+{x:4, y:121000},
+{x:5, y:125000},
+{x:1.5, y:80500},
+{x:8, y:108500},
+{x:1, y:52000},
+{x:13, y:135000},
+{x:13, y:151000},
+{x:11, y:130000},
+{x:8, y:110000},
+{x:1, y:48000},
+{x:6, y:112000},
+{x:12, y:145000},
+{x:4, y:91000},
+{x:12, y:87500},
+{x:7, y:114500},
+{x:5, y:82000},
+{x:1, y:42000},
+{x:1, y:38000},
+{x:5, y:125000},
+{x:2, y:78000},
+{x:5, y:88000},
+{x:13, y:150000},
+{x:18, y:114000},
+{x:2, y:70000},
+{x:3, y:100000},
+{x:7, y:117000},
+{x:2, y:65000},
+{x:3, y:76553.4},
+{x:2.5, y:65000},
+{x:20, y:135000},
+{x:14, y:85000},
+{x:10, y:100000},
+{x:1, y:70000},
+{x:3, y:80000},
+{x:2, y:90000},
+{x:15, y:160000},
+{x:1, y:50000},
+{x:2, y:36000},
+{x:2, y:60000},
+{x:10, y:110000},
+{x:1, y:40000},
+{x:16, y:155000},
+{x:2, y:67500},
+{x:5, y:109000},
+{x:2, y:70000},
+{x:1.2, y:67000},
+{x:2, y:76800},
+{x:3, y:127000},
+{x:3, y:75000},
+{x:1, y:50000},
+{x:9, y:113000},
+{x:7, y:120000},
+{x:2, y:100000},
+{x:1, y:37440},
+{x:4, y:125000},
+{x:21, y:105000},
+{x:1.5, y:75000},
+{x:25, y:177000},
+                    ]
+                },
+                {
+                    type: "scatter",
+                    name: "Female",
+                    showInLegend: true,
+                    dataPoints: [
+                    {x:1, y:72800},
+{x:5, y:67000},
+{x:3, y:120000},
+{x:2, y:80000},
+{x:1, y:50000},
+{x:4, y:105000},
+{x:0.6, y:38000},
+{x:1.5, y:70000},
+{x:5, y:80000},
+{x:1.5, y:60000},
+{x:1.5, y:74000},
+{x:1, y:60000},
+{x:1, y:37440},
+{x:0.5, y:75000},
+{x:1, y:65000},
+{x:3, y:165000},
+{x:5, y:100000},
+{x:0.5, y:0},
+{x:1, y:65000},
+{x:2, y:55000},
+                    ]
+                }]
+            });
+            chart.render();
+
+            })
+            </script>
+            <div id="salarybyexperienceandgender" class="chart-container"></div>
+
+            <h3>Zooming in on the experience space occupied by both men and women: </h3>
+<p>X Values have been slightly adjusted in the following chart for the purpose of non hiding data points behind each other</p>
+            <script>
+                    charts.push(()=>{
+
+                    var chart = new CanvasJS.Chart("salarybyexperienceandgenderzoomed", {
+                        animationEnabled: true,
+                        title:{
+                            text: "Salary by Experience grouped by Gender (Zoomed)"
+                        },
+                        axisX: {
+                            title:"Years"
+                        },
+                        axisY:{
+                            title: "Net Salary",
+
+                        interval: 25000,
+                        },
+                        data: [{
+                            type: "scatter",
+                            name: "Male",
+                            showInLegend: true,
+                            dataPoints: [
+                            {x: 0.5,	y: 40000},
+{x: 0.7,	y: 52000},
+{x: 1,	y: 70000},
+{x: 1,	y: 40000},
+{x: 1,	y: 60000},
+{x: 1,	y: 60000},
+{x: 1,	y: 96000},
+{x: 1,	y: 45000},
+{x: 1,	y: 50000},
+{x: 1,	y: 34000},
+{x: 1,	y: 50000},
+{x: 1,	y: 80000},
+{x: 1,	y: 65000},
+{x: 1,	y: 62000},
+{x: 1,	y: 60000},
+{x: 1,	y: 41000},
+{x: 1,	y: 52000},
+{x: 1,	y: 48000},
+{x: 1,	y: 42000},
+{x: 1,	y: 38000},
+{x: 1,	y: 70000},
+{x: 1,	y: 50000},
+{x: 1,	y: 40000},
+{x: 1,	y: 50000},
+{x: 1,	y: 37440},
+{x: 1,	y: 65000},
+{x: 1.2,	y: 67000},
+{x: 1.5,	y: 90000},
+{x: 1.5,	y: 65000},
+{x: 1.5,	y: 65000},
+{x: 1.5,	y: 62000},
+{x: 1.5,	y: 80500},
+{x: 1.5,	y: 75000},
+{x: 1.7,	y: 51250},
+{x: 1.75,	y: 65000},
+{x: 2,	y: 80000},
+{x: 2,	y: 51250},
+{x: 2,	y: 59450},
+{x: 2,	y: 105000},
+{x: 2,	y: 75000},
+{x: 2,	y: 70000},
+{x: 2,	y: 70000},
+{x: 2,	y: 105000},
+{x: 2,	y: 38000},
+{x: 2,	y: 55000},
+{x: 2,	y: 88500},
+{x: 2,	y: 70000},
+{x: 2,	y: 78000},
+{x: 2,	y: 70000},
+{x: 2,	y: 65000},
+{x: 2,	y: 90000},
+{x: 2,	y: 36000},
+{x: 2,	y: 60000},
+{x: 2,	y: 25000},
+{x: 2,	y: 67500},
+{x: 2,	y: 70000},
+{x: 2,	y: 76800},
+{x: 2,	y: 100000},
+{x: 2.5,	y: 52000},
+{x: 2.5,	y: 80000},
+{x: 2.5,	y: 80000},
+{x: 2.5,	y: 100000},
+{x: 2.5,	y: 92000},
+{x: 2.5,	y: 65000},
+{x: 3,	y: 68500},
+{x: 3,	y: 60000},
+{x: 3,	y: 75000},
+{x: 3,	y: 80000},
+{x: 3,	y: 63000},
+{x: 3,	y: 75000},
+{x: 3,	y: 65000},
+{x: 3,	y: 75000},
+{x: 3,	y: 70000},
+{x: 3,	y: 85000},
+{x: 3,	y: 90000},
+{x: 3,	y: 100000},
+{x: 3,	y: 76553},
+{x: 3,	y: 80000},
+{x: 3,	y: 127000},
+{x: 3,	y: 75000},
+{x: 3,	y: 98000},
+{x: 3,	y: 85000},
+{x: 3,	y: 90000},
+{x: 3,	y: 100000},
+{x: 3.5,	y: 65000},
+{x: 3.5,	y: 130000},
+{x: 3.75,	y: 115000},
+{x: 4,	y: 108000},
+{x: 4,	y: 75000},
+{x: 4,	y: 82000},
+{x: 4,	y: 115000},
+{x: 4,	y: 90000},
+{x: 4,	y: 105000},
+{x: 4,	y: 121000},
+{x: 4,	y: 91000},
+{x: 4,	y: 125000},
+{x: 4,	y: 110000},
+
+                            ]
+                        },
+                        {
+                            type: "scatter",
+                            name: "Female",
+                            showInLegend: true,
+                            dataPoints: [
+                            {x: 0.6, y: 75000},
+                            {x: 0.6, y: 38000},
+                            {x: 1.1, y: 72800},
+                            {x: 1.1, y: 50000},
+                            {x: 1.1, y: 60000},
+                            {x: 1.1, y: 37440},
+                            {x: 1.1, y: 65000},
+                            {x: 1.1, y: 65000},
+                            {x: 1.6, y: 70000},
+                            {x: 1.6, y: 60000},
+                            {x: 1.75, y: 74000},
+                            {x: 2.1, y: 80000},
+                            {x: 2.1, y: 55000},
+                            {x: 2.1, y: 92000},
+                            {x: 2.1, y: 50000},
+                            {x: 3.1, y: 120000},
+                            {x: 3.1, y: 165000},
+                            {x: 4.1, y: 105000},
+                            {x: 4.1, y: 96000},
+                            {x: 5.1, y: 67000},
+                            {x: 5.1, y: 80000},
+                            {x: 5.1, y: 100000}
+                            ]
+                        }]
+                    });
+                    chart.render();
+
+                    })
+                    </script>
+                    <div id="salarybyexperienceandgenderzoomed" class="chart-container"></div>
+
+  <h3>Salary comparison for junior, mid, and senior (self selected) developers</h3>
+  <table class="tableizer-table">
+    <thead><tr class="tableizer-firstrow"><th></th><th>Junior</th><th>Mid</th><th>Senior</th></tr></thead><tbody>
+     <tr><td>Min</td><td>34000</td><td>51250</td><td>60000</td></tr>
+     <tr><td>Average</td><td>56939</td><td>83727</td><td>123891</td></tr>
+     <tr><td>Max</td><td>88500</td><td>127000</td><td>206400</td></tr>
+     <tr><td>Standard Dev</td><td>13737</td><td>16913</td><td>24845</td></tr>
+    </tbody></table>
+  <script>
+        charts.push(() => {
+            var chart = new CanvasJS.Chart("jsms", {
+        animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        title:{
+            text: "Salary Comparison"
+        },
+        axisY: {
+            title: "Salary",
+            includeZero: false,
+            tickLength: 0,
+            gridDashType: "dash",
+            interval: 25000,
+            minimum:0,
+        },
+        dataPointMaxWidth: 40,
+        data: [{
+            type: "boxAndWhisker",
+            toolTipContent: "<span style=\"color:#6D78AD\">{label}:</span> <br><b>Maximum:</b> {y[3]},<br><b>Q3:</b> {y[2]},<br><b>Median:</b> {y[4]}<br><b>Q1:</b> {y[1]}<br><b>Minimum:</b> {y[0]}",
+            yValueFormatString: "#####.0 km/s",
+            dataPoints: [
+                {x:0, label: "Junior Developer", y: [34000, 45750, 65000, 88500, 56939] },
+                {x:1, label: "Mid-level Developer", y: [51250, 73750, 94500, 127000, 83727] },
+                {x:2, label: "Senior Developer", y: [60000, 109000, 140000, 206400, 123891] },
+            ]
+        },
+        {
+            type: "scatter",
+            name: "Outlier Values",
+            toolTipContent: "<span style=\"color:#C0504E\">{name}</span>: {y} km/s",
+            showInLegend: true,
+            dataPoints: [
+                { x: 0, label: "Junior Developer", y: 250000 },
+                // { x: 2, label: "Junior Developer", y: 620 },
+            ]
+        }]
+    });
+            chart.render();
+        })
+    </script>
+    <div id="jsms" style="height: 370px; width: 100%"></div>
+
+    <h3>Leadership roles salary comparision</h3>
+    <p>This chart attempts to show the comparison between developers of a similar level who are in leadership positions or not and their salaries.</p>
+  <script>
+        charts.push(() => {
+            var chart = new CanvasJS.Chart("leadership", {
+        animationEnabled: true,
+        theme: "light2", // "light1", "light2", "dark1", "dark2"
+        title:{
+            text: "Leadership Salary Comparison"
+        },
+        axisY: {
+            title: "Salary",
+            includeZero: false,
+            tickLength: 0,
+            gridDashType: "dash",
+            interval: 25000,
+            minimum:0,
+        },
+
+        dataPointMaxWidth: 40,
+        data: [{
+            type: "boxAndWhisker",
+            toolTipContent: "<span style=\"color:#6D78AD\">{label}:</span> <br><b>Maximum:</b> {y[3]},<br><b>Q3:</b> {y[2]},<br><b>Median:</b> {y[4]}<br><b>Q1:</b> {y[1]}<br><b>Minimum:</b> {y[0]}",
+            yValueFormatString: "#####.0 km/s",
+            dataPoints: [
+                {x:1, label: "Mid-level Developer", y: [51250, 73750, 94500, 127000, 83727] },
+                {x:2, label: "Mid-level Leadership", y: [80000, 87500, 108500, 110000, 97000] },
+                {x:3, label: "Senior Developer", y: [60000, 109000, 140000, 206400, 123891] },
+                {x:4, label: "Senior Leadership", y: [96000, 114875, 150000, 160000, 131875] },
+            ]
+        },
+        ]
+    });
+            chart.render();
+        })
+    </script>
+    <div id="leadership" style="height: 370px; width: 100%"></div>
+
+    <h2>Education</h2>
+
+
+      <p>This years survey allowed respondents to select multiple educations types, for example: Bootcamp and Some College.
+          The sum of education types will be larger than the number of total repondents.</p>
+
+      <script>
+
+
+        charts.push(() => {
+            let chart = new CanvasJS.Chart("education", {
+                creditText: "",
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title:{
+                    text: "Education Type"
+                },
+                axisY: {
+                    title: "Respondants"
+                },
+                data: [{
+                    type: "column",
+                    dataPoints: [
+
+                    {label: "Self Taught ONLY",	y: 31},
+                    {label: "Bootcamp",	y: 84},
+                    {label: "Some College",	y: 46},
+                    {label: "Finished Bachelors",	y: 101},
+                    {label: "Finished Graduate Degree",	y: 20},
+                    ]
+                }]
+            });
+            chart.render();
+        })
+        </script>
+
+        <div id="education" class="chart-container"></div>
+
+        <h3>Salary by education</h3>
+
+        <script>
+                charts.push(() => {
+                    var chart = new CanvasJS.Chart("salarybyeducation", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title:{
+                    text: "Salary by Education"
+                },
+                axisY: {
+                    title: "Salary",
+                    includeZero: false,
+                    tickLength: 0,
+                    gridDashType: "dash",
+                    interval: 25000,
+                    minimum:0,
+                },
+
+                dataPointMaxWidth: 40,
+                data: [{
+                    type: "boxAndWhisker",
+                    toolTipContent: "<span style=\"color:#6D78AD\">{label}:</span> <br><b>Maximum:</b> {y[3]},<br><b>Q3:</b> {y[2]},<br><b>Median:</b> {y[4]}<br><b>Q1:</b> {y[1]}<br><b>Minimum:</b> {y[0]}",
+                    yValueFormatString: "#####.0 km/s",
+                    dataPoints: [
+                        {x: 0, label: "self taught", y:[60000, 80000, 135000,	206400,	107730]},
+                        {x: 1, label: "bootcamp", y:[34000, 52000, 81625,	165000,	72856]},
+                        {x: 2, label: "some college", y:[36000, 60000, 108000,	180000,	82111]},
+                        {x: 3, label: "finished bachelors", y:[37440, 78400, 126500,	165000,	102375]},
+                        {x: 4, label: "finished graduate degree", y:[60000, 79000, 111500,	172000,	101053]}
+                    ]
+                },
+                ]
+            });
+                    chart.render();
+                })
+            </script>
+            <div id="salarybyeducation" style="height: 370px; width: 100%"></div>
+
+
+            <script>
+                    charts.push(()=>{
+
+                    var chart = new CanvasJS.Chart("salarybyeducationscatter", {
+                        animationEnabled: true,
+                        title:{
+                            text: "Salary by Experience grouped by Education"
+                        },
+                        axisX: {
+                            title:"Years"
+                        },
+                        axisY:{
+                            title: "Net Salary",
+                            maximum: 250000,
+                        interval: 25000,
+                        },
+                        data: [{
+                            type: "scatter",
+                            name: "Bootcamp",
+                            markerSize:5,
+                            showInLegend: true,
+                            dataPoints: [
+                            {x: 4	, y: 110000},
+{x: 2	, y: 70000},
+{x: 1.5	, y: 74000},
+{x: 4	, y: 91000},
+{x: 2	, y: 70000},
+{x: 2	, y: 80000},
+{x: 4	, y: 105000},
+{x: 1	, y: 72800},
+{x: 3	, y: 80000},
+{x: 2.5	, y: 80000},
+{x: 0.7	, y: 52000},
+{x: 1	, y: 50000},
+{x: 2.5	, y: 92000},
+{x: 2	, y: 38000},
+{x: 3	, y: 85000},
+{x: 1	, y: 37440},
+{x: 1.5	, y: 80500},
+{x: 1	, y: 52000},
+{x: 3	, y: 165000},
+{x: 2	, y: 76800},
+{x: 5	, y: 82000},
+{x: 3.5	, y: 65000},
+{x: 5	, y: 85000},
+{x: 3	, y: 120000},
+{x: 2.5	, y: 80000},
+{x: 1	, y: 50000},
+{x: 1.7	, y: 51250},
+{x: 3	, y: 65000},
+{x: 2	, y: 75000},
+{x: 1.5	, y: 60000},
+{x: 1.5	, y: 62000},
+{x: 1	, y: 60000},
+{x: 1	, y: 62000},
+{x: 1	, y: 60000},
+{x: 1	, y: 65000},
+{x: 1	, y: 42000},
+{x: 1	, y: 50000},
+{x: 2	, y: 36000},
+{x: 2	, y: 60000},
+{x: 1	, y: 40000},
+{x: 3	, y: 100000},
+{x: 1.5	, y: 90000},
+{x: 1.5	, y: 65000},
+{x: 1	, y: 40000},
+{x: 0.5	, y: 40000},
+{x: 1	, y: 60000},
+{x: 2	, y: 59450},
+{x: 1.75	, y: 65000},
+{x: 1	, y: 45000},
+{x: 0.6	, y: 38000},
+{x: 2	, y: 70000},
+{x: 1.5	, y: 70000},
+{x: 4	, y: 75000},
+{x: 1	, y: 34000},
+{x: 1	, y: 50000},
+{x: 2	, y: 105000},
+{x: 1	, y: 65000},
+{x: 2	, y: 55000},
+{x: 5	, y: 130000},
+{x: 0.5	, y: 75000},
+{x: 1	, y: 41000},
+{x: 4	, y: 90000},
+{x: 4	, y: 121000},
+{x: 1	, y: 48000},
+{x: 2	, y: 65000},
+{x: 1	, y: 70000},
+{x: 2	, y: 25000},
+{x: 2	, y: 67500},
+{x: 1.2	, y: 67000},
+{x: 3	, y: 127000},
+{x: 3	, y: 75000},
+{x: 1	, y: 50000},
+{x: 1	, y: 37440},
+{x: 1	, y: 65000},
+{x: 4	, y: 125000},
+{x: 2	, y: 55000},
+{x: 1.5	, y: 75000},
+{x: 1	, y: 65000},
+{x: 3	, y: 85000},
+{x: 2	, y: 92000},
+{x: 3	, y: 90000},
+{x: 2	, y: 50000},
+                            ]
+                        },
+                        {
+                            type: "scatter",
+                            name: "Self-taught",
+                            showInLegend: true,
+                            markerSize:5,
+                            dataPoints: [
+                            {x: 4	, y: 105000},
+{x: 5	, y: 82000},
+{x: 3.5	, y: 65000},
+{x: 3	, y: 100000},
+{x: 2	, y: 80000},
+{x: 11	, y: 145000},
+{x: 8	, y: 135000},
+{x: 5	, y: 115000},
+{x: 7	, y: 120000},
+{x: 5	, y: 60000},
+{x: 7	, y: 60000},
+{x: 3	, y: 63000},
+{x: 5	, y: 65000},
+{x: 6	, y: 138000},
+{x: 15	, y: 98000},
+{x: 6	, y: 80000},
+{x: 2	, y: 105000},
+{x: 12	, y: 150000},
+{x: 2.5	, y: 100000},
+{x: 5	, y: 206400},
+{x: 20	, y: 135000},
+{x: 3	, y: 70000},
+{x: 8	, y: 165000},
+{x: 18	, y: 110000},
+{x: 2	, y: 70000},
+{x: 8	, y: 110000},
+{x: 12	, y: 87500},
+{x: 20	, y: 135000},
+{x: 2	, y: 100000},
+{x: 25	, y: 177000},
+                            ]
+                        },
+                        {
+                            type: "scatter",
+                            name: "College Degree",
+                            markerSize:5,
+                            showInLegend: true,
+                            dataPoints: [
+                            {x: 4	, y: 105000},
+{x: 2	, y: 80000},
+{x: 11	, y: 145000},
+{x: 8	, y: 135000},
+{x: 5	, y: 115000},
+{x: 7	, y: 120000},
+{x: 5	, y: 60000},
+{x: 7	, y: 60000},
+{x: 4	, y: 110000},
+{x: 2	, y: 70000},
+{x: 1.5	, y: 74000},
+{x: 4	, y: 91000},
+{x: 2	, y: 70000},
+{x: 2	, y: 80000},
+{x: 1	, y: 72800},
+{x: 3	, y: 80000},
+{x: 2.5	, y: 80000},
+{x: 0.7	, y: 52000},
+{x: 1	, y: 50000},
+{x: 2.5	, y: 92000},
+{x: 2	, y: 38000},
+{x: 3	, y: 85000},
+{x: 1	, y: 37440},
+{x: 1.5	, y: 80500},
+{x: 1	, y: 52000},
+{x: 3	, y: 165000},
+{x: 2	, y: 76800},
+{x: 10	, y: 128000},
+{x: 10	, y: 60000},
+{x: 10	, y: 130000},
+{x: 1.5	, y: 65000},
+{x: 10	, y: 110000},
+{x: 1	, y: 70000},
+{x: 3	, y: 68500},
+{x: 3	, y: 60000},
+{x: 5	, y: 67000},
+{x: 3	, y: 75000},
+{x: 5	, y: 94000},
+{x: 14	, y: 94000},
+{x: 6	, y: 125000},
+{x: 3	, y: 75000},
+{x: 13	, y: 149000},
+{x: 13	, y: 125000},
+{x: 1	, y: 60000},
+{x: 6	, y: 80000},
+{x: 4	, y: 105000},
+{x: 1	, y: 96000},
+{x: 7	, y: 150000},
+{x: 8	, y: 140000},
+{x: 3.75	, y: 115000},
+{x: 2	, y: 70000},
+{x: 1	, y: 80000},
+{x: 12	, y: 125000},
+{x: 15	, y: 130000},
+{x: 5	, y: 107000},
+{x: 14	, y: 150000},
+{x: 5	, y: 100000},
+{x: 12	, y: 160000},
+{x: 6	, y: 90000},
+{x: 7	, y: 114000},
+{x: 5	, y: 109000},
+{x: 20	, y: 159000},
+{x: 2	, y: 88500},
+{x: 14	, y: 141000},
+{x: 8	, y: 121000},
+{x: 10	, y: 75000},
+{x: 8	, y: 96000},
+{x: 4	, y: 115000},
+{x: 7	, y: 140000},
+{x: 20	, y: 142000},
+{x: 5	, y: 95000},
+{x: 10	, y: 150000},
+{x: 3	, y: 90000},
+{x: 14	, y: 140000},
+{x: 13	, y: 135000},
+{x: 13	, y: 151000},
+{x: 11	, y: 130000},
+{x: 6	, y: 112000},
+{x: 12	, y: 145000},
+{x: 7	, y: 114500},
+{x: 5	, y: 125000},
+{x: 5	, y: 88000},
+{x: 13	, y: 150000},
+{x: 3	, y: 100000},
+{x: 7	, y: 117000},
+{x: 3,	y:76553.4},
+{x: 2.5	, y: 65000},
+{x: 10	, y: 100000},
+{x: 3	, y: 80000},
+{x: 2	, y: 90000},
+{x: 15	, y: 160000},
+{x: 5	, y: 109000},
+{x: 5	, y: 100000},
+{x: 7	, y: 120000},
+{x: 3	, y: 98000},
+{x: 4	, y: 96000},
+{x: 20	, y: 140000},
+{x: 9	, y: 97500},
+{x: 3.5	, y: 130000},
+
+                            ]
+                        }]
+                    });
+                    chart.render();
+
+                    })
+                    </script>
+                    <div id="salarybyeducationscatter" class="chart-container"></div>
+
+            <h3>Degree Types</h3>
+            <p>Of the respondants that have completed a college degree, what type were they?</p>
+            <script>
+                    charts.push(() => {
+
+                    var chart = new CanvasJS.Chart("degreepie", {
+                        theme: "light2", // "light1", "light2", "dark1", "dark2"
+                        animationEnabled: true,
+                        title: {
+                            text: "Degree types"
+                        },
+                        data: [{
+                            type: "pie",
+                            startAngle: 25,
+                            toolTipContent: "<b>{label}</b>: {y}%",
+                            showInLegend: "true",
+                            legendText: "{label}",
+                            indexLabelFontSize: 16,
+                            indexLabel: "{label} - {y}%",
+                            dataPoints: [
+                                { y: 53.7, label: "Computer Science (related)" },
+                                { y: 46.2, label: "Other" },
+                            ]
+                        }]
+                    });
+                    chart.render();
+
+                    })
+                    </script>
+                    <div id="degreepie" class="chart-container"></div>
+<h3>Computer Science (related) degrees</h3>
+                    <script>
+                            charts.push(() => {
+
+                            var chart = new CanvasJS.Chart("csdegreepie", {
+                                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                                animationEnabled: true,
+                                title: {
+                                    text: "Computer Science (related) degrees"
+                                },
+                                data: [{
+                                    type: "pie",
+                                    startAngle: 25,
+                                    toolTipContent: "<b>{label}</b>: {y}%",
+                                    showInLegend: "true",
+                                    legendText: "{label}",
+                                    indexLabelFontSize: 16,
+                                    indexLabel: "{label} - {y}%",
+                                    dataPoints: [
+                                    {label: "Computer Science", y: 38},
+                                    {label: "Information Systems", y: 13},
+                                    {label: "Information Technology", y: 4},
+                                    {label: "Management Information Systems", y: 5},
+                                    {label: "Software Engineering", y: 	3},
+                                    {label: "Computer Engineering", y: 3},
+                                    {label: "Web Development", y: 2},
+                                    ]
+                                }]
+                            });
+                            chart.render();
+
+                            })
+                            </script>
+                            <div id="csdegreepie" class="chart-container"></div>
+<h3>Non CS Related Degrees</h3>
+<p>This list has a long tale, and a chart was not a good way to visualize the data:</p>
+
+<table class="tableizer-table" style="text-align: left">
+        <thead><tr class="tableizer-firstrow"><th>Degree</th><th>Respondants</th></tr></thead><tbody>
+         <tr><td>Business</td><td>6</td></tr>
+         <tr><td>English</td><td>5</td></tr>
+         <tr><td>Linguistics</td><td>4</td></tr>
+         <tr><td>Mathematics</td><td>4</td></tr>
+         <tr><td>Accounting</td><td>3</td></tr>
+         <tr><td>Digital Media</td><td>3</td></tr>
+         <tr><td>Economics</td><td>3</td></tr>
+         <tr><td>Political Science</td><td>3</td></tr>
+         <tr><td>History</td><td>2</td></tr>
+         <tr><td>Philosophy</td><td>2</td></tr>
+         <tr><td>Psychology</td><td>2</td></tr>
+         <tr><td>Agriculture & Resource Economics</td><td>1</td></tr>
+         <tr><td>Art</td><td>1</td></tr>
+         <tr><td>Aviation</td><td>1</td></tr>
+         <tr><td>Chemistry</td><td>1</td></tr>
+         <tr><td>Communications</td><td>1</td></tr>
+         <tr><td>Design</td><td>1</td></tr>
+         <tr><td>Electrical Engineering</td><td>1</td></tr>
+         <tr><td>Finance</td><td>1</td></tr>
+         <tr><td>Geography</td><td>1</td></tr>
+         <tr><td>Graphic Design</td><td>1</td></tr>
+         <tr><td>Humanities</td><td>1</td></tr>
+         <tr><td>International Relations</td><td>1</td></tr>
+         <tr><td>Liberal studies</td><td>1</td></tr>
+         <tr><td>Mass communications</td><td>1</td></tr>
+         <tr><td>Mechanical Engineering</td><td>1</td></tr>
+         <tr><td>Music </td><td>1</td></tr>
+         <tr><td>Neuroscience </td><td>1</td></tr>
+         <tr><td>Outdoor Recreation </td><td>1</td></tr>
+         <tr><td>Public health </td><td>1</td></tr>
+         <tr><td>Sociology</td><td>1</td></tr>
+         <tr><td>Statistics</td><td>1</td></tr>
+         <tr><td>Studio Art</td><td>1</td></tr>
+         <tr><td>System Analysis</td><td>1</td></tr>
+        </tbody></table>
+
+      <!-- <div class="commentary">
+        <h4>Commentary</h4>
+          <ul>
+            <li>Less experienced self-taught and bootcamp graduates are the lowest earners, starting between 35-60k</li>
+            <li>No Bootcamp graduate who answered the survey earns &gt;$100k</li>
+            <li>Traditional university graduates on average earn higher than their peers at all experience levels</li>
+          </ul>
+      </div> -->
+
+      <h2>Location</h2>
+
+      <p>This years survey asked people which counties they lived and worked in.</p>
+
+      <p>The following counties had only one respondant each, and are not charted (insufficent data): Tooele and Emory</p>
+
+      <h3>Salary where you work</h3>
+
+      <p>The following chart shows salaries based on where people work:</p>
+
+      <script>
+            charts.push(() => {
+                var chart = new CanvasJS.Chart("salarybyworklocation", {
+            animationEnabled: true,
+            theme: "light2", // "light1", "light2", "dark1", "dark2"
+            title:{
+                text: "Salary where you Work"
+            },
+            axisY: {
+                title: "Salary",
+                includeZero: false,
+                tickLength: 0,
+                gridDashType: "dash",
+                interval: 25000,
+                minimum:0,
+            },
+
+            dataPointMaxWidth: 20,
+            data: [{
+                type: "boxAndWhisker",
+                toolTipContent: "<span style=\"color:#6D78AD\">{label}:</span> <br><b>Maximum:</b> {y[3]},<br><b>Q3:</b> {y[2]},<br><b>Median:</b> {y[4]}<br><b>Q1:</b> {y[1]}<br><b>Minimum:</b> {y[0]}",
+                yValueFormatString: "#####.0 km/s",
+                dataPoints: [
+                    { x: 0, label: "Cache", y: [60000, 66375, 76250, 80000, 70875]},
+                    { x: 1, label: "Davis", y: [37440, 58125, 89500, 165000, 82527]},
+                    { x: 3, label: "Salt Lake", y: [34000, 68500, 126000, 206400, 98498]},
+                    { x: 4, label: "Summit", y: [80000, 80000, 80000, 80000, 80000]},
+                    { x: 5, label: "Weber", y: [45000, 48750, 56250, 60000, 52500]},
+                    { x: 6, label: "Utah", y: [36000, 67750, 109750, 165000, 90631]},
+                    { x: 2, label: "Remote", y: [38000, 65625, 128750, 180000, 103375]},
+                ]
+            },
+            ]
+        });
+                chart.render();
+            })
+        </script>
+        <div id="salarybyworklocation" style="height: 370px; width: 100%"></div>
+
+        <h3>Salary by where you live</h3>
+        <p>The following chart shows salaries based on where people live:</p>
+        <script>
+                charts.push(() => {
+                    var chart = new CanvasJS.Chart("salarybyhomelocation", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                title:{
+                    text: "Salary where you Live"
+                },
+                axisY: {
+                    title: "Salary",
+                    includeZero: false,
+                    tickLength: 0,
+                    gridDashType: "dash",
+                    interval: 25000,
+                    minimum:0,
+                },
+
+                dataPointMaxWidth: 20,
+                data: [{
+                    type: "boxAndWhisker",
+                    toolTipContent: "<span style=\"color:#6D78AD\">{label}:</span> <br><b>Maximum:</b> {y[3]},<br><b>Q3:</b> {y[2]},<br><b>Median:</b> {y[4]}<br><b>Q1:</b> {y[1]}<br><b>Minimum:</b> {y[0]}",
+                    yValueFormatString: "#####.0 km/s",
+                    dataPoints: [
+                    { x: 0, label: "Cache", y: [60000, 66375, 76250, 80000, 70875]},
+                    { x: 1, label: "Davis", y: [45000, 54063, 101000, 172000, 87938]},
+                    { x: 2, label: "Remote", y: [38000, 56000, 92000, 110000, 74000]},
+                    { x: 3, label: "Salt Lake", y: [34000, 68500, 132500, 206400, 99520]},
+                    { x: 4, label: "Summit", y: [78000, 78500, 79500, 80000, 79000]},
+                    { x: 5, label: "Weber", y: [60000, 63750, 125750, 128000, 94500]},
+                    { x: 6, label: "Utah", y: [41000, 69250, 109000, 180000, 90835]},
+                    ]
+                },
+                ]
+            });
+                    chart.render();
+                })
+            </script>
+            <div id="salarybyhomelocation" style="height: 370px; width: 100%"></div>
+
+            <h3>Commuters</h3>
+            <p>Do respondants live and work in the same county?</p>
+            <script>
+                    charts.push(() => {
+
+                    var chart = new CanvasJS.Chart("commutepie", {
+                        theme: "light2", // "light1", "light2", "dark1", "dark2"
+                        animationEnabled: true,
+                        title: {
+                            text: "Commutes"
+                        },
+                        data: [{
+                            type: "pie",
+                            startAngle: 25,
+                            toolTipContent: "<b>{label}</b>: {y}%",
+                            showInLegend: "true",
+                            legendText: "{label}",
+                            indexLabelFontSize: 16,
+                            indexLabel: "{label} - {y}%",
+                            dataPoints: [
+                                { y: 65, label: "Same County" },
+                                { y: 35, label: "Different County" },
+                            ]
+                        }]
+                    });
+                    chart.render();
+
+                    })
+                    </script>
+                    <div id="commutepie" class="chart-container"></div>
+
+                    <h2>Other Compensation</h2>
+                    <p>This survey asked about compensation not included in their net salary. This type of salary may not occur reguraly, and can be difficult to quantify (like stocks or hiring bonuses).</p>
+
+                    <table class="tableizer-table">
+                            <thead><tr class="tableizer-firstrow"><th>Total Respondants</th><th>209</th><th>100%</th></tr></thead><tbody>
+                             <tr><td>Received Stock</td><td>51</td><td>24%</td></tr>
+                             <tr><td>Received Cash Bonus</td><td>151</td><td>72%</td></tr>
+                            </tbody></table>
+
+            <h3>Respondants that received cash bonuses</h3>
+                <script>
+                        charts.push(() => {
+                            let chart = new CanvasJS.Chart("cashbonus", {
+                                creditText: "",
+                                animationEnabled: true,
+                                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                                title:{
+                                    text: "Cash Bonuses Received"
+                                },
+                                axisY: {
+                                    title: "Respondants"
+                                },
+                                data: [{
+                                    type: "column",
+                                    dataPoints: [
+                                    {label: "No Cash Bonus", y: 69},
+                                    {label: "0-10k", y: 59},
+                                    {label: "10-20k", y: 11},
+                                    {label: "20-30k", y: 4},
+                                    {label: "30-40k", y: 4},
+                                    {label: "40-50k", y: 1},
+                                    {label: "50-60k", y: 1},
+                                    {label: "130-140k", y: 1},
+                                    ]
+                                }]
+                            });
+                            chart.render();
+                        })
+                        </script>
+
+                        <div id="cashbonus" class="chart-container"></div>
+
+                        <h3>Respondants that received stock</h3>
+                <script>
+                        charts.push(() => {
+                            let chart = new CanvasJS.Chart("stockreceived", {
+                                creditText: "",
+                                animationEnabled: true,
+                                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                                title:{
+                                    text: "Cash Bonuses Received"
+                                },
+                                axisY: {
+                                    title: "Respondants"
+                                },
+                                data: [{
+                                    type: "column",
+                                    dataPoints: [
+                                    {label:"0-5k", y: 22},
+                                    {label:"5-10k", y: 5},
+                                    {label:"10-15k", y: 4},
+                                    {label:"15-20k", y: 4},
+                                    {label:"20-25k", y: 2},
+                                    {label:"25-30k", y: 4},
+                                    {label:"30-35k", y: 1},
+                                    {label:"35-40k", y: 1},
+                                    {label:"40-45k", y: 1},
+                                    {label:"45-50k", y: 1},
+                                    {label:"55-60k", y: 3},
+                                    {label:"70-75k", y: 1},
+                                    {label:"85-90k", y: 1},
+                                    ]
+                                }]
+                            });
+                            chart.render();
+                        })
+                        </script>
+
+                        <div id="stockreceived" class="chart-container"></div>
+
+      <h2>Comparison to similar 2017 survey</h2>
+
+      <script>
+            charts.push(()=>{
+
+            var chart = new CanvasJS.Chart("2017comparison", {
+                animationEnabled: true,
+                title:{
+                    text: "Comparison of 2017 and 2018 Salary data"
+                },
+                axisX: {
+                    title:"Years"
+                },
+                axisY:{
+                    title: "Net Salary",
+                    maximum: 250000,
+                interval: 25000,
+                },
+                data: [{
+                    type: "scatter",
+                    name: "2018",
+                    markerSize:5,
+                    showInLegend: true,
+                    dataPoints: [
+                        {x:0.5, y:40000},
+                        {x:0.5, y:75000},
+                        {x:0.5, y:0},
+                        {x:0.6, y:38000},
+                        {x:0.7, y:52000},
+                        {x:1, y:70000},
+                        {x:1, y:72800},
+                        {x:1, y:40000},
+                        {x:1, y:50000},
+                        {x:1, y:60000},
+                        {x:1, y:60000},
+                        {x:1, y:96000},
+                        {x:1, y:45000},
+                        {x:1, y:50000},
+                        {x:1, y:34000},
+                        {x:1, y:50000},
+                        {x:1, y:80000},
+                        {x:1, y:60000},
+                        {x:1, y:65000},
+                        {x:1, y:62000},
+                        {x:1, y:60000},
+                        {x:1, y:37440},
+                        {x:1, y:41000},
+                        {x:1, y:52000},
+                        {x:1, y:48000},
+                        {x:1, y:65000},
+                        {x:1, y:42000},
+                        {x:1, y:38000},
+                        {x:1, y:70000},
+                        {x:1, y:50000},
+                        {x:1, y:40000},
+                        {x:1, y:50000},
+                        {x:1, y:37440},
+                        {x:1, y:65000},
+                        {x:1.2, y:67000},
+                        {x:1.5, y:90000},
+                        {x:1.5, y:65000},
+                        {x:1.5, y:70000},
+                        {x:1.5, y:60000},
+                        {x:1.5, y:65000},
+                        {x:1.5, y:74000},
+                        {x:1.5, y:62000},
+                        {x:1.5, y:80500},
+                        {x:1.5, y:75000},
+                        {x:1.7, y:51250},
+                        {x:1.75, y:65000},
+                        {x:2, y:80000},
+                        {x:2, y:80000},
+                        {x:2, y:51250},
+                        {x:2, y:59450},
+                        {x:2, y:105000},
+                        {x:2, y:75000},
+                        {x:2, y:70000},
+                        {x:2, y:70000},
+                        {x:2, y:105000},
+                        {x:2, y:38000},
+                        {x:2, y:55000},
+                        {x:2, y:88500},
+                        {x:2, y:70000},
+                        {x:2, y:78000},
+                        {x:2, y:70000},
+                        {x:2, y:65000},
+                        {x:2, y:90000},
+                        {x:2, y:36000},
+                        {x:2, y:60000},
+                        {x:2, y:67500},
+                        {x:2, y:70000},
+                        {x:2, y:76800},
+                        {x:2, y:100000},
+                        {x:2, y:55000},
+                        {x:2.5, y:52000},
+                        {x:2.5, y:80000},
+                        {x:2.5, y:80000},
+                        {x:2.5, y:100000},
+                        {x:2.5, y:92000},
+                        {x:2.5, y:65000},
+                        {x:3, y:68500},
+                        {x:3, y:60000},
+                        {x:3, y:75000},
+                        {x:3, y:80000},
+                        {x:3, y:120000},
+                        {x:3, y:63000},
+                        {x:3, y:75000},
+                        {x:3, y:65000},
+                        {x:3, y:75000},
+                        {x:3, y:70000},
+                        {x:3, y:85000},
+                        {x:3, y:90000},
+                        {x:3, y:100000},
+                        {x:3, y:76553.4},
+                        {x:3, y:165000},
+                        {x:3, y:80000},
+                        {x:3, y:127000},
+                        {x:3, y:75000},
+                        {x:3.75, y:115000},
+                        {x:4, y:108000},
+                        {x:4, y:105000},
+                        {x:4, y:110000},
+                        {x:4, y:75000},
+                        {x:4, y:82000},
+                        {x:4, y:115000},
+                        {x:4, y:90000},
+                        {x:4, y:105000},
+                        {x:4, y:121000},
+                        {x:4, y:91000},
+                        {x:4, y:125000},
+                        {x:5, y:85000},
+                        {x:5, y:67000},
+                        {x:5, y:94000},
+                        {x:5, y:80000},
+                        {x:5, y:206400},
+                        {x:5, y:115000},
+                        {x:5, y:107000},
+                        {x:5, y:100000},
+                        {x:5, y:130000},
+                        {x:5, y:109000},
+                        {x:5, y:60000},
+                        {x:5, y:95000},
+                        {x:5, y:65000},
+                        {x:5, y:105500},
+                        {x:5, y:125000},
+                        {x:5, y:82000},
+                        {x:5, y:125000},
+                        {x:5, y:88000},
+                        {x:5, y:109000},
+                        {x:5, y:100000},
+                        {x:6, y:90000},
+                        {x:6, y:125000},
+                        {x:6, y:80000},
+                        {x:6, y:80000},
+                        {x:6, y:90000},
+                        {x:6, y:112000},
+                        {x:6, y:138000},
+                        {x:7, y:150000},
+                        {x:7, y:114000},
+                        {x:7, y:120000},
+                        {x:7, y:140000},
+                        {x:7, y:60000},
+                        {x:7, y:114500},
+                        {x:7, y:117000},
+                        {x:7, y:120000},
+                        {x:8, y:101000},
+                        {x:8, y:140000},
+                        {x:8, y:135000},
+                        {x:8, y:165000},
+                        {x:8, y:121000},
+                        {x:8, y:96000},
+                        {x:8, y:108500},
+                        {x:8, y:110000},
+                        {x:9, y:180000},
+                        {x:9, y:113000},
+                        {x:10, y:128000},
+                        {x:10, y:60000},
+                        {x:10, y:172000},
+                        {x:10, y:120000},
+                        {x:10, y:130000},
+                        {x:10, y:75000},
+                        {x:10, y:150000},
+                        {x:10, y:100000},
+                        {x:10, y:110000},
+                        {x:11, y:145000},
+                        {x:11, y:130000},
+                        {x:12, y:110000},
+                        {x:12, y:150000},
+                        {x:12, y:125000},
+                        {x:12, y:160000},
+                        {x:12, y:145000},
+                        {x:12, y:87500},
+                        {x:13, y:149000},
+                        {x:13, y:125000},
+                        {x:13, y:140000},
+                        {x:13, y:135000},
+                        {x:13, y:151000},
+                        {x:13, y:150000},
+                        {x:14, y:94000},
+                        {x:14, y:150000},
+                        {x:14, y:141000},
+                        {x:14, y:140000},
+                        {x:14, y:85000},
+                        {x:15, y:98000},
+                        {x:15, y:130000},
+                        {x:15, y:160000},
+                        {x:16, y:155000},
+                        {x:18, y:125000},
+                        {x:18, y:110000},
+                        {x:18, y:114000},
+                        {x:19, y:135000},
+                        {x:20, y:135000},
+                        {x:20, y:159000},
+                        {x:20, y:142000},
+                        {x:20, y:135000},
+                        {x:21, y:105000},
+                        {x:25, y:177000},
+                    ]
+                },
+                {
+                    type: "scatter",
+                    name: "2017",
+                    showInLegend: true,
+                    markerSize:5,
+                    dataPoints: [
+                        {x: 1, y: 58000},
+                        {x: 2.75, y: 103000},
+                        {x: 1, y: 35000},
+                        {x: 7, y: 126000},
+                        {x: 3, y: 75000},
+                        {x: 9, y: 125000},
+                        {x: 9, y: 150000},
+                        {x: 4, y: 80000},
+                        {x: 2, y: 85000},
+                        {x: 7, y: 140000},
+                        {x: 2, y: 75000},
+                        {x: 11, y: 125000},
+                        {x: 0.5, y: 60000},
+                        {x: 1, y: 37000},
+                        {x: 4, y: 82000},
+                        {x: 3, y: 35000},
+                        {x: 2, y: 55000},
+                        {x: 4.5, y: 80000},
+                        {x: 4, y: 85000},
+                        {x: 2, y: 55000},
+                        {x: 5, y: 100000},
+                        {x: 12, y: 125000},
+                        {x: 8, y: 120000},
+                        {x: 6, y: 115000},
+                        {x: 3, y: 85000},
+                        {x: 17, y: 120000},
+                        {x: 1.5, y: 70000},
+                        {x: 2, y: 60000},
+                        {x: 5, y: 95000},
+                        {x: 1, y: 50000},
+                        {x: 18, y: 90000},
+                        {x: 4, y: 82000},
+                        {x: 1, y: 50000},
+                        {x: 3, y: 70000},
+                        {x: 3, y: 87000},
+                        {x: 13, y: 90000},
+                        {x: 1.5, y: 63000},
+                        {x: 12, y: 87000},
+                        {x: 4, y: 80000},
+                        {x: 5, y: 115000},
+                        {x: 1, y: 58000},
+                        {x: 9, y: 175000},
+                        {x: 1, y: 47500},
+                        {x: 1, y: 50000},
+                        {x: 13, y: 87500},
+                        {x: 8, y: 100000},
+                        {x: 13, y: 145000},
+                        {x: 5, y: 160000},
+                        {x: 14, y: 125000},
+                        {x: 7, y: 99000},
+                        {x: 10, y: 140000},
+                        {x: 11, y: 135000},
+                        {x: 2, y: 42000},
+                        {x: 3, y: 95000},
+                        {x: 2, y: 45000},
+                        {x: 12, y: 120000},
+                        {x: 8, y: 95000},
+                        {x: 10, y: 110000},
+                        {x: 2, y: 80000},
+                        {x: 5, y: 110000},
+                        {x: 4, y: 54000},
+                        {x: 2.5, y: 95000},
+                        {x: 4, y: 70000},
+                        {x: 3, y: 90000},
+                        {x: 3, y: 55000},
+                        {x: 18, y: 160000},
+                        {x: 8, y: 105000},
+                        {x: 5, y: 60000},
+                        {x: 2, y: 74000},
+                    ]
+                }]
+            });
+            chart.render();
+
+            })
+            </script>
+            <div id="2017comparison" class="chart-container"></div>
+
+
+    <!-- <div class="commentary">
+        <h4>Commentary</h4>
+        <p>While interpreting this data, please remember that there are other variables, such as company, industry, and (perhaps most important) individual skill, which were not measured by this survey and can have a large impact on pay and job title.</p>
+    </div> -->
+
+
+        <script>
+            window.onload = () => {
+                charts.forEach(chart => chart())
+            };
+        </script>
+
+      <h2>Comments</h2>
+
+      <p>What was most interesting to you? What other insights might there be? Please dicuss:</p>
+
+      <script id="dsq-count-scr" src="//mvp-2.disqus.com/count.js" async></script>
+      <script>
+      var disqus_config = function () {
+this.page.url = "https://mdjasper.github.io/utah-js-pay-data-2018/";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = 2; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://mvp-2.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+<footer>
+    <h3>About</h3>
+    <p>The data for this survey was collected October 8-12, 2018 from members of the UtahJS Slack channel using Google Forms. The raw data can be publicly accessed <a href="https://docs.google.com/spreadsheets/d/1czsMFM7KRLXiXCrFqLZyUSUV_6m8XC4zP4TQJGe8i2c/edit?usp=sharing" target="_blank">here in Google Sheets</a></p>
+    <p>The survey was conducted, and this website was provided by <a href="http://www.mikedoesweb.com" target="_blank">Michael Jasper</a>.</p>
+
+    <h3>License and Copyright</h3>
+
+    <p><strong>TL;DR: to be as free, sharable, and usable as possible: the dataset is Open Database licenced, the website, analysis, and commentary are MIT licenced</strong></p>
+
+    <p>This dataset "2018 UtahJS Pay, Education, Job-title Survey" is made available under the Open Database License: <a href="http://opendatacommons.org/licenses/odbl/1.0/" target="_blank">http://opendatacommons.org/licenses/odbl/1.0/</a>. Any rights in individual contents of the database are licensed under the Database Contents License: <a href="http://opendatacommons.org/licenses/dbcl/1.0/" target="_blank">http://opendatacommons.org/licenses/dbcl/1.0/</a></p>
+    <p>This website, commentary, and analysis are made available under the MIT license:</p>
+
+    <p>Copyright 2018 Michael Jasper</p>
+
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+    <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+    <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+  </footer>
+        </div>
+    </body>
+</html>
