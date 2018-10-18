@@ -31,11 +31,11 @@
 
         <h2>Demographics</h2>
 
-        <p>136 people responeded to the survey. They described themeselves in the following ways:</p>
+        <p>209 people responeded to the survey. They described themeselves in the following ways:</p>
 
         <h3>Self Reported Job Titles</h3>
 
-        <p>This years survey allowed respondants to choose multiple job titles, like Senior Developer and Team Lead, so the sum of job titles is greater than the total number of respondants.</p>
+        <p>This years survey allowed respondents to choose multiple job titles, like Senior Developer and Team Lead, so the sum of job titles is greater than the total number of respondents.</p>
 
         <script>
 
@@ -49,7 +49,7 @@
                         text: "Reported Job Titles"
                     },
                     axisY: {
-                        title: "Respondants"
+                        title: "Respondents"
                     },
                     data: [{
                         type: "column",
@@ -113,7 +113,7 @@
                     text: "Years of experience"
                 },
                 axisY: {
-                    title: "Number of respondants",
+                    title: "Number of respondents",
                 },
                 data: [{
                     type: "splineArea",
@@ -194,24 +194,24 @@
 
       <h3>Net Salary (Not including bonuses, stock, etc)</h3>
 
-        <p>This year several respondants reported no income (unimployed). Including their data, the salary breakdown is:</p>
+        <p>This year several respondents reported no income (unimployed). Including their data, the salary breakdown is:</p>
 
-      <table>
-        <tr><td>Minimun</td><td>$0</td></tr>
-        <tr><td>Average</td><td>$94,084</td></tr>
-        <tr><td>Maximum</td><td>$250,000</td></tr>
-        <tr><td>Standard Deviation</td><td>$37,542</td></tr>
-    </table>
+        <table class="tableizer-table">
+            <tr><td>Minimum</td><td>$0</td></tr>
+            <tr><td>Average</td><td>$93,205</td></tr>
+            <tr><td>Maximum</td><td>$206,400</td></tr>
+            <tr><td>Standard Deviation</td><td>$35,194</td></tr>
+        </tbody></table>
 
     <p>Excluding those data points (for all responses that are employed), the breakdown is:</p>
     <table>
         <tr><td>Minimun</td><td>$34,000</td></tr>
-        <tr><td>Average</td><td>$94,571</td></tr>
-        <tr><td>Maximum</td><td>$250,000</td></tr>
-        <tr><td>Standard Deviation</td><td>$37,019</td></tr>
+        <tr><td>Average</td><td>$93,657</td></tr>
+        <tr><td>Maximum</td><td>$206,400</td></tr>
+        <tr><td>Standard Deviation</td><td>$34,671</td></tr>
     </table>
 
-    <p>The rest of the analysis will be based on respondants that are employed:</p>
+    <p>The rest of the analysis will be based on respondents that are employed:</p>
 
     <h3>Salary by Experience</h3>
 
@@ -936,7 +936,7 @@
                     text: "Education Type"
                 },
                 axisY: {
-                    title: "Respondants"
+                    title: "Respondents"
                 },
                 data: [{
                     type: "column",
@@ -1256,7 +1256,7 @@
                     <div id="salarybyeducationscatter" class="chart-container"></div>
 
             <h3>Degree Types</h3>
-            <p>Of the respondants that have completed a college degree, what type were they?</p>
+            <p>Of the respondents that have completed a college degree, what type were they?</p>
             <script>
                     charts.push(() => {
 
@@ -1323,7 +1323,7 @@
 <p>This list has a long tale, and a chart was not a good way to visualize the data:</p>
 
 <table class="tableizer-table" style="text-align: left">
-        <thead><tr class="tableizer-firstrow"><th>Degree</th><th>Respondants</th></tr></thead><tbody>
+        <thead><tr class="tableizer-firstrow"><th>Degree</th><th>Respondents</th></tr></thead><tbody>
          <tr><td>Business</td><td>6</td></tr>
          <tr><td>English</td><td>5</td></tr>
          <tr><td>Linguistics</td><td>4</td></tr>
@@ -1460,7 +1460,7 @@
             <div id="salarybyhomelocation" style="height: 370px; width: 100%"></div>
 
             <h3>Commuters</h3>
-            <p>Do respondants live and work in the same county?</p>
+            <p>Do respondents live and work in the same county?</p>
             <script>
                     charts.push(() => {
 
@@ -1494,12 +1494,12 @@
                     <p>This survey asked about compensation not included in their net salary. This type of salary may not occur reguraly, and can be difficult to quantify (like stocks or hiring bonuses).</p>
 
                     <table class="tableizer-table">
-                            <thead><tr class="tableizer-firstrow"><th>Total Respondants</th><th>209</th><th>100%</th></tr></thead><tbody>
+                            <thead><tr class="tableizer-firstrow"><th>Total Respondents</th><th>209</th><th>100%</th></tr></thead><tbody>
                              <tr><td>Received Stock</td><td>51</td><td>24%</td></tr>
                              <tr><td>Received Cash Bonus</td><td>151</td><td>72%</td></tr>
                             </tbody></table>
 
-            <h3>Respondants that received cash bonuses</h3>
+            <h3>Respondents that received cash bonuses</h3>
                 <script>
                         charts.push(() => {
                             let chart = new CanvasJS.Chart("cashbonus", {
@@ -1510,7 +1510,7 @@
                                     text: "Cash Bonuses Received"
                                 },
                                 axisY: {
-                                    title: "Respondants"
+                                    title: "Respondents"
                                 },
                                 data: [{
                                     type: "column",
@@ -1532,7 +1532,7 @@
 
                         <div id="cashbonus" class="chart-container"></div>
 
-                        <h3>Respondants that received stock</h3>
+                        <h3>Respondents that received stock</h3>
                 <script>
                         charts.push(() => {
                             let chart = new CanvasJS.Chart("stockreceived", {
@@ -1543,7 +1543,7 @@
                                     text: "Cash Bonuses Received"
                                 },
                                 axisY: {
-                                    title: "Respondants"
+                                    title: "Respondents"
                                 },
                                 data: [{
                                     type: "column",
@@ -1894,7 +1894,7 @@
       <script>
       var disqus_config = function () {
 this.page.url = "https://mdjasper.github.io/utah-js-pay-data-2018/";  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = 2; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+this.page.identifier = 3; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE
